@@ -1,0 +1,849 @@
+Prefix: : <http://www.semanticweb.org/mdebe/ontologies/example#>
+Prefix: dc: <http://purl.org/dc/elements/1.1/>
+Prefix: example: <http://www.semanticweb.org/mdebe/ontologies/example#>
+Prefix: owl: <http://www.w3.org/2002/07/owl#>
+Prefix: rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+Prefix: rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+Prefix: swrl: <http://www.w3.org/2003/11/swrl#>
+Prefix: swrla: <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#>
+Prefix: swrlb: <http://www.w3.org/2003/11/swrlb#>
+Prefix: xml: <http://www.w3.org/XML/1998/namespace>
+Prefix: xsd: <http://www.w3.org/2001/XMLSchema#>
+
+
+
+Ontology: <http://www.semanticweb.org/mdebe/ontologies/example>
+
+
+AnnotationProperty: rdfs:comment
+
+    
+AnnotationProperty: rdfs:label
+
+    
+AnnotationProperty: swrla:isRuleEnabled
+
+    
+Datatype: rdf:PlainLiteral
+
+    
+Datatype: xsd:boolean
+
+    
+Datatype: xsd:integer
+
+    
+Datatype: xsd:string
+
+    
+ObjectProperty: example:From
+
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        example:Travel
+    
+    Range: 
+        example:Place
+    
+    
+ObjectProperty: example:IsActor
+
+    Domain: 
+        example:Person
+    
+    Range: 
+        example:Travel
+    
+    
+ObjectProperty: example:To
+
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        example:Travel
+    
+    Range: 
+        example:Place
+    
+    
+ObjectProperty: example:be_in
+
+    Domain: 
+        example:Be_in
+    
+    Range: 
+        example:Place
+    
+    
+ObjectProperty: example:has_Aunt
+
+    SubPropertyOf: 
+        example:has_Social_Relation_With
+    
+    Domain: 
+        example:Person
+    
+    Range: 
+        example:Person
+    
+    
+ObjectProperty: example:has_Brother
+
+    SubPropertyOf: 
+        example:has_Sibling,
+        example:has_Social_Relation_With
+    
+    Domain: 
+        example:Person
+    
+    Range: 
+        example:Person,
+        example:has_Gender value example:Male
+    
+    
+ObjectProperty: example:has_Child
+
+    SubPropertyOf: 
+        example:has_Social_Relation_With
+    
+    Domain: 
+        example:Person
+    
+    Range: 
+        example:Person
+    
+    InverseOf: 
+        example:has_Parent
+    
+    
+ObjectProperty: example:has_Country
+
+    Domain: 
+        example:City,
+        example:Country,
+        example:Person,
+        example:Place
+    
+    Range: 
+        example:Country,
+        example:Place
+    
+    
+ObjectProperty: example:has_Daughter
+
+    SubPropertyOf: 
+        example:has_Child,
+        example:has_Social_Relation_With
+    
+    Domain: 
+        example:Person
+    
+    Range: 
+        example:Person,
+        example:has_Gender value example:Female
+    
+    
+ObjectProperty: example:has_Father
+
+    SubPropertyOf: 
+        example:has_Parent,
+        example:has_Social_Relation_With
+    
+    Domain: 
+        example:Person
+    
+    Range: 
+        example:Adult,
+        example:Man,
+        example:Person,
+        example:Adult
+         and (example:has_Gender value example:Male),
+        example:Person
+         and (example:has_Age some xsd:integer[> 18]),
+        example:has_Gender value example:Male,
+        example:has_Age some xsd:integer[> 18]
+    
+    
+ObjectProperty: example:has_Friend
+
+    SubPropertyOf: 
+        example:has_Social_Relation_With
+    
+    Characteristics: 
+        Symmetric
+    
+    Domain: 
+        example:Person
+    
+    Range: 
+        example:Person
+    
+    
+ObjectProperty: example:has_Gender
+
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        example:Person
+    
+    Range: 
+        example:Gender,
+        {example:Female , example:Male}
+    
+    
+ObjectProperty: example:has_Husband
+
+    SubPropertyOf: 
+        example:has_Social_Relation_With,
+        example:has_Spouse
+    
+    Domain: 
+        example:Adult,
+        example:Person,
+        example:Person
+         and (example:has_Age some xsd:integer[> 18]),
+        example:has_Age some xsd:integer[> 18]
+    
+    Range: 
+        example:Adult,
+        example:Person,
+        example:Person
+         and (example:has_Age some xsd:integer[> 18]),
+        example:has_Gender value example:Male,
+        example:has_Age some xsd:integer[> 18]
+    
+    
+ObjectProperty: example:has_Mother
+
+    SubPropertyOf: 
+        example:has_Parent,
+        example:has_Social_Relation_With
+    
+    Domain: 
+        example:Person
+    
+    Range: 
+        example:Adult,
+        example:Person,
+        example:Woman,
+        example:Adult
+         and (example:has_Gender value example:Female),
+        example:Person
+         and (example:has_Age some xsd:integer[> 18]),
+        example:has_Gender value example:Female,
+        example:has_Age some xsd:integer[> 18]
+    
+    
+ObjectProperty: example:has_Parent
+
+    SubPropertyOf: 
+        example:has_Social_Relation_With
+    
+    Domain: 
+        example:Person
+    
+    Range: 
+        example:Person
+    
+    InverseOf: 
+        example:has_Child
+    
+    
+ObjectProperty: example:has_Sibling
+
+    SubPropertyOf: 
+        example:has_Social_Relation_With
+    
+    Characteristics: 
+        Symmetric
+    
+    Domain: 
+        example:Person
+    
+    Range: 
+        example:Person
+    
+    
+ObjectProperty: example:has_Sister
+
+    SubPropertyOf: 
+        example:has_Sibling,
+        example:has_Social_Relation_With
+    
+    Domain: 
+        example:Person
+    
+    Range: 
+        example:Person,
+        example:has_Gender value example:Female
+    
+    
+ObjectProperty: example:has_Social_Relation_With
+
+    Domain: 
+        example:Person
+    
+    Range: 
+        example:Person
+    
+    
+ObjectProperty: example:has_Son
+
+    SubPropertyOf: 
+        example:has_Child,
+        example:has_Social_Relation_With
+    
+    Domain: 
+        example:Person
+    
+    Range: 
+        example:Person,
+        example:has_Gender value example:Male
+    
+    
+ObjectProperty: example:has_Spouse
+
+    SubPropertyOf: 
+        example:has_Social_Relation_With
+    
+    Characteristics: 
+        Functional,
+        Symmetric
+    
+    Domain: 
+        example:Adult,
+        example:Person,
+        example:Person
+         and (example:has_Age some xsd:integer[> 18]),
+        example:has_Age some xsd:integer[> 18]
+    
+    Range: 
+        example:Adult,
+        example:Person,
+        example:Person
+         and (example:has_Age some xsd:integer[> 18]),
+        example:has_Age some xsd:integer[> 18]
+    
+    
+ObjectProperty: example:has_Uncle
+
+    SubPropertyOf: 
+        example:has_Social_Relation_With
+    
+    Domain: 
+        example:Person
+    
+    Range: 
+        example:Person
+    
+    
+ObjectProperty: example:has_Wife
+
+    SubPropertyOf: 
+        example:has_Social_Relation_With,
+        example:has_Spouse
+    
+    Domain: 
+        example:Adult,
+        example:Person,
+        example:Person
+         and (example:has_Age some xsd:integer[> 18]),
+        example:has_Age some xsd:integer[> 18]
+    
+    Range: 
+        example:Adult,
+        example:Person,
+        example:Person
+         and (example:has_Age some xsd:integer[> 18]),
+        example:has_Gender value example:Female,
+        example:has_Age some xsd:integer[> 18]
+    
+    
+ObjectProperty: example:who_was
+
+    Domain: 
+        example:Person
+    
+    Range: 
+        example:Be_in
+    
+    
+DataProperty: example:has_Age
+
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        example:Person
+    
+    Range: 
+        xsd:integer
+    
+    
+DataProperty: example:has_Social_Relations
+
+    Domain: 
+        example:Person
+    
+    Range: 
+        xsd:integer
+    
+    
+DataProperty: example:has_name
+
+    Domain: 
+        example:Person,
+        example:Place
+    
+    Range: 
+        xsd:string
+    
+    
+Class: example:Adult
+
+    EquivalentTo: 
+        example:Person
+         and (example:has_Age some xsd:integer[> 18])
+    
+    SubClassOf: 
+        example:Person,
+        example:Person
+         and (example:has_Age some xsd:integer[> 18]),
+        example:has_Age some xsd:integer[> 18]
+    
+    
+Class: example:Be_in
+
+    
+Class: example:Boy
+
+    EquivalentTo: 
+        example:Child
+         and (example:has_Gender value example:Male)
+    
+    SubClassOf: 
+        example:Child,
+        example:Person,
+        example:Child
+         and (example:has_Gender value example:Male),
+        example:Person
+         and (example:has_Age some xsd:integer[< 18]),
+        example:has_Gender value example:Male,
+        example:has_Age some xsd:integer[< 18]
+    
+    DisjointWith: 
+        example:Girl
+    
+    
+Class: example:Child
+
+    EquivalentTo: 
+        example:Person
+         and (example:has_Age some xsd:integer[< 18])
+    
+    SubClassOf: 
+        example:Person,
+        example:Person
+         and (example:has_Age some xsd:integer[< 18]),
+        example:has_Age some xsd:integer[< 18]
+    
+    
+Class: example:City
+
+    SubClassOf: 
+        example:Country,
+        example:Place
+    
+    
+Class: example:Country
+
+    SubClassOf: 
+        example:Place
+    
+    
+Class: example:Gender
+
+    EquivalentTo: 
+        {example:Female , example:Male}
+    
+    SubClassOf: 
+        {example:Female , example:Male}
+    
+    
+Class: example:Girl
+
+    EquivalentTo: 
+        example:Child
+         and (example:has_Gender value example:Female)
+    
+    SubClassOf: 
+        example:Child,
+        example:Person,
+        example:Child
+         and (example:has_Gender value example:Female),
+        example:Person
+         and (example:has_Age some xsd:integer[< 18]),
+        example:has_Gender value example:Female,
+        example:has_Age some xsd:integer[< 18]
+    
+    DisjointWith: 
+        example:Boy
+    
+    
+Class: example:Hermit
+
+    EquivalentTo: 
+        example:Person
+         and (example:has_Social_Relation_With max 0 example:Person)
+    
+    SubClassOf: 
+        example:Person,
+        example:Person
+         and (example:has_Social_Relation_With max 0 example:Person),
+        example:has_Social_Relation_With max 0 example:Person
+    
+    
+Class: example:Man
+
+    EquivalentTo: 
+        example:Adult
+         and (example:has_Gender value example:Male)
+    
+    SubClassOf: 
+        example:Adult,
+        example:Person,
+        example:Adult
+         and (example:has_Gender value example:Male),
+        example:Person
+         and (example:has_Age some xsd:integer[> 18]),
+        example:has_Gender value example:Male,
+        example:has_Age some xsd:integer[> 18]
+    
+    
+Class: example:Parent
+
+    EquivalentTo: 
+        example:Adult
+         and (example:has_Child some example:Person)
+    
+    SubClassOf: 
+        example:Adult,
+        example:Person,
+        example:Adult
+         and (example:has_Child some example:Person),
+        example:Person
+         and (example:has_Age some xsd:integer[> 18]),
+        example:has_Child some example:Person,
+        example:has_Age some xsd:integer[> 18]
+    
+    
+Class: example:Person
+
+    
+Class: example:Place
+
+    
+Class: example:Social_Person
+
+    EquivalentTo: 
+        example:Person
+         and (example:has_Social_Relation_With min 5 example:Person)
+    
+    SubClassOf: 
+        example:Person,
+        example:Person
+         and (example:has_Social_Relation_With min 5 example:Person),
+        example:has_Social_Relation_With min 5 example:Person
+    
+    
+Class: example:Travel
+
+    
+Class: example:Woman
+
+    EquivalentTo: 
+        example:Adult
+         and (example:has_Gender value example:Female)
+    
+    SubClassOf: 
+        example:Adult,
+        example:Person,
+        example:Adult
+         and (example:has_Gender value example:Female),
+        example:Person
+         and (example:has_Age some xsd:integer[> 18]),
+        example:has_Gender value example:Female,
+        example:has_Age some xsd:integer[> 18]
+    
+    
+Individual: example:A1
+
+    Types: 
+        example:Man,
+        example:Person
+    
+    Facts:  
+     example:IsActor  example:T1,
+     example:who_was  example:T1,
+     example:has_name  "João"
+    
+    
+Individual: example:Beth_Doe
+
+    Types: 
+        example:Adult,
+        example:Person,
+        example:Person
+         and (example:has_Age some xsd:integer[> 18]),
+        example:has_Gender value example:Female,
+        example:has_Age some xsd:integer[> 18]
+    
+    Facts:  
+     example:has_Friend  example:Jay_Gatsby,
+     example:has_Gender  example:Female,
+     example:has_Social_Relation_With  example:Jay_Gatsby,
+     example:has_Social_Relation_With  example:John_Doe,
+     example:has_Spouse  example:John_Doe,
+     example:has_Age  32
+    
+    
+Individual: example:C1
+
+    Types: 
+        example:City,
+        example:Country,
+        example:Place
+    
+    Facts:  
+     example:has_Country  example:P1,
+     example:has_name  "Lisboa"
+    
+    
+Individual: example:C2
+
+    Types: 
+        example:City,
+        example:Country,
+        example:Place
+    
+    Facts:  
+     example:has_Country  example:P1,
+     example:has_name  "Evora"
+    
+    
+Individual: example:C3
+
+    Types: 
+        example:City,
+        example:Place
+    
+    Facts:  
+     example:has_Country  example:P1,
+     example:has_name  "Tomar"
+    
+    
+Individual: example:Daisy_Buchanan
+
+    Types: 
+        example:Person
+    
+    Facts:  
+     example:has_Friend  example:Jay_Gatsby,
+     example:has_Friend  example:John_Doe,
+     example:has_Gender  example:Female,
+     example:has_Social_Relation_With  example:Jay_Gatsby,
+     example:has_Social_Relation_With  example:John_Doe,
+     example:has_Age  32
+    
+    
+Individual: example:Female
+
+    Types: 
+        example:Gender,
+        {example:Female , example:Male}
+    
+    
+Individual: example:Jay_Gatsby
+
+    Types: 
+        example:Person
+    
+    Facts:  
+     example:has_Friend  example:Beth_Doe,
+     example:has_Friend  example:Daisy_Buchanan,
+     example:has_Friend  example:John_Doe,
+     example:has_Friend  example:John_Smith,
+     example:has_Friend  example:Nick_Carraway,
+     example:has_Social_Relation_With  example:Beth_Doe,
+     example:has_Social_Relation_With  example:Daisy_Buchanan,
+     example:has_Social_Relation_With  example:John_Doe,
+     example:has_Social_Relation_With  example:John_Smith,
+     example:has_Social_Relation_With  example:Nick_Carraway,
+     example:has_Age  42
+    
+    
+Individual: example:John_Doe
+
+    Types: 
+        example:Adult,
+        example:Person,
+        example:Person
+         and (example:has_Age some xsd:integer[> 18]),
+        example:has_Child some example:Person,
+        example:has_Age some xsd:integer[> 18]
+    
+    Facts:  
+     example:has_Brother  example:Tom_Doe,
+     example:has_Child  example:Mary_Doe,
+     example:has_Daughter  example:Mary_Doe,
+     example:has_Friend  example:Daisy_Buchanan,
+     example:has_Friend  example:Jay_Gatsby,
+     example:has_Friend  example:John_Smith,
+     example:has_Sibling  example:Sarah_Doe,
+     example:has_Sibling  example:Tom_Doe,
+     example:has_Sister  example:Sarah_Doe,
+     example:has_Social_Relation_With  example:Beth_Doe,
+     example:has_Social_Relation_With  example:Daisy_Buchanan,
+     example:has_Social_Relation_With  example:Jay_Gatsby,
+     example:has_Social_Relation_With  example:John_Smith,
+     example:has_Social_Relation_With  example:Mary_Doe,
+     example:has_Social_Relation_With  example:Sarah_Doe,
+     example:has_Social_Relation_With  example:Tom_Doe,
+     example:has_Spouse  example:Beth_Doe,
+     example:has_Wife  example:Beth_Doe,
+     example:has_Age  34
+    
+    
+Individual: example:John_Smith
+
+    Types: 
+        example:Person
+    
+    Facts:  
+     example:has_Friend  example:Jay_Gatsby,
+     example:has_Friend  example:John_Doe,
+     example:has_Social_Relation_With  example:Jay_Gatsby,
+     example:has_Social_Relation_With  example:John_Doe,
+     example:has_Age  43
+    
+    
+Individual: example:Male
+
+    Types: 
+        example:Gender,
+        {example:Female , example:Male}
+    
+    
+Individual: example:Mary_Doe
+
+    Types: 
+        example:Person,
+        example:has_Gender value example:Female
+    
+    Facts:  
+     example:has_Aunt  example:Sarah_Doe,
+     example:has_Gender  example:Female,
+     example:has_Parent  example:John_Doe,
+     example:has_Sibling  example:Susan_Doe,
+     example:has_Sister  example:Susan_Doe,
+     example:has_Social_Relation_With  example:John_Doe,
+     example:has_Social_Relation_With  example:Sarah_Doe,
+     example:has_Social_Relation_With  example:Susan_Doe,
+     example:has_Social_Relation_With  example:Tom_Doe,
+     example:has_Uncle  example:Tom_Doe
+    
+    
+Individual: example:Miss_Havisham
+
+    Types: 
+        example:Person
+    
+    Facts:  
+     example:has_Gender  example:Female,
+     example:has_Age  65
+    
+    
+Individual: example:Nick_Carraway
+
+    Types: 
+        example:Person
+    
+    Facts:  
+     example:has_Friend  example:Jay_Gatsby,
+     example:has_Social_Relation_With  example:Jay_Gatsby,
+     example:has_Age  28
+    
+    
+Individual: example:P1
+
+    Types: 
+        example:Country,
+        example:Person,
+        example:Place
+    
+    Facts:  
+     example:has_name  "Portugal"
+    
+    
+Individual: example:Sarah_Doe
+
+    Types: 
+        example:Person,
+        example:has_Gender value example:Female
+    
+    Facts:  
+     example:has_Gender  example:Female,
+     example:has_Sibling  example:John_Doe,
+     example:has_Social_Relation_With  example:John_Doe
+    
+    
+Individual: example:Susan_Doe
+
+    Types: 
+        example:Person,
+        example:has_Gender value example:Female
+    
+    Facts:  
+     example:has_Gender  example:Female,
+     example:has_Sibling  example:Mary_Doe,
+     example:has_Social_Relation_With  example:Mary_Doe
+    
+    
+Individual: example:T1
+
+    Types: 
+        example:Travel
+    
+    Facts:  
+     example:From  example:C2,
+     example:To  example:C1
+    
+    
+Individual: example:Tom_Doe
+
+    Types: 
+        example:Person,
+        example:has_Gender value example:Male
+    
+    Facts:  
+     example:has_Gender  example:Male,
+     example:has_Sibling  example:John_Doe,
+     example:has_Social_Relation_With  example:John_Doe
+    
+    
+DifferentIndividuals: 
+    example:Beth_Doe,example:Daisy_Buchanan,example:Female,example:Jay_Gatsby,example:John_Doe,example:John_Smith,example:Male,example:Mary_Doe,example:Miss_Havisham,example:Nick_Carraway,example:Sarah_Doe,example:Susan_Doe,example:Tom_Doe
+
+Rule: 
+    example:Travel(?<http://www.semanticweb.org/mdebe/ontologies/example#x>), example:To(?<http://www.semanticweb.org/mdebe/ontologies/example#x>, ?<http://www.semanticweb.org/mdebe/ontologies/example#p1>), example:From(?<http://www.semanticweb.org/mdebe/ontologies/example#x>, ?<http://www.semanticweb.org/mdebe/ontologies/example#p2>), example:IsActor(?<http://www.semanticweb.org/mdebe/ontologies/example#a>, ?<http://www.semanticweb.org/mdebe/ontologies/example#x>) -> example:Be_in(?<http://www.semanticweb.org/mdebe/ontologies/example#x>), example:be_in(?<http://www.semanticweb.org/mdebe/ontologies/example#x>, ?<http://www.semanticweb.org/mdebe/ontologies/example#p1>), example:be_in(?<http://www.semanticweb.org/mdebe/ontologies/example#x>, ?<http://www.semanticweb.org/mdebe/ontologies/example#p2>), example:who_was(?<http://www.semanticweb.org/mdebe/ontologies/example#a>, ?<http://www.semanticweb.org/mdebe/ontologies/example#x>)
+
+Rule: 
+    example:has_Child(?<http://www.semanticweb.org/mdebe/ontologies/example#p>, ?<http://www.semanticweb.org/mdebe/ontologies/example#c>), example:has_Brother(?<http://www.semanticweb.org/mdebe/ontologies/example#p>, ?<http://www.semanticweb.org/mdebe/ontologies/example#b>) -> example:has_Uncle(?<http://www.semanticweb.org/mdebe/ontologies/example#c>, ?<http://www.semanticweb.org/mdebe/ontologies/example#b>)
+
+Rule: 
+    example:has_Child(?<http://www.semanticweb.org/mdebe/ontologies/example#p>, ?<http://www.semanticweb.org/mdebe/ontologies/example#c>), example:has_Sister(?<http://www.semanticweb.org/mdebe/ontologies/example#p>, ?<http://www.semanticweb.org/mdebe/ontologies/example#s>) -> example:has_Aunt(?<http://www.semanticweb.org/mdebe/ontologies/example#c>, ?<http://www.semanticweb.org/mdebe/ontologies/example#s>)
+
