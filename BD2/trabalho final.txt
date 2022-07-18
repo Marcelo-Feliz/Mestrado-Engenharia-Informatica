@@ -1,0 +1,184 @@
+	Site de filmes
+
+Utilizadores
+	Nome
+	Generos preferidos
+	lista filmes vistos
+
+Filmes
+	genero de filme
+	Descrição do filme
+
+	Atores
+	Realização, produtor, escretor, etc
+	imagem
+	Comentários
+	Avaliações
+	Prémios e nomiações
+
+Amigos
+	*utlizadores podem ter amigos
+	ver os filmes vistos por amigos e gostados
+
+ - Proximos filmes
+	Lista de filmes que vao sair nos cinemas em pouco tempo
+
+ - Filmes agora no cinema
+	Lista de filmes que estão agora no cinema
+
+-------------------------------------------------------------------------
+Site de filmes
+	Os utilizadores vao poder criar uma conta ou entrar com uma já existente
+	Depois de entrar podem escolher 3 opções:
+		Lista de filmes que ja viram
+		Lista de todos os filmes com informação disponivel
+		Lista de amigos, com a possibilidade de adicionar mais
+	Ao selecionar um filme irá ser apresentada toda a informação sobre o mesmo, será sempre possivel adicioná-lo aos filmes visto
+		será possivel tambem comentar o filme ou deixar um gost, apenas se o filme ja foi visto
+	Ao selecionar um amigo, teremos a opção de remover amigo e ver a lista de filmes visto por este
+	
+Na página inicial vão estar os proximos filmes que vão sair no cinema, e os filmes que estão agora no cinema
+
+A informação referente aos filmes que irá ser apresentada na sua página será 
+	genero de filme
+	Descrição do filme
+
+	Atores
+	Realização, produtor, escretor, etc
+	imagem
+	Comentários
+	Avaliações
+	Prémios e nomiações
+
+
+
+
+
+
+
+
+
+
+
+
+
+create (a:utilizador{nome:'Rodrigo'})
+
+create (a:utilizador{nome:'Andre'})
+
+create (a:utilizador{nome:'Ruben'})
+
+create (n:utilizador{nome:'Ana'}) return n
+
+create (n:utilizador{nome:'Manuel'}) return n
+
+create (n:movie{nome:'Wolverine'}) return n
+
+create (n:pessoa{nome:'James Mangold'}) return n
+
+create (n:pessoa{nome:'Will Yun Lee'}) return n
+
+create (n:pessoa{nome:'Tao Okamoto'}) return n
+
+create (n:pessoa{nome:'Hugh Jackman'}) return n
+
+
+
+
+Match (a:utilizador),
+(b:utilizador)
+where a.nome='Ana' and b.nome = 'Manuel' 
+CREATE (a)-[r:amigo]->(b)
+return type(r)
+
+Match (a:utilizador),
+(b:utilizador)
+where a.nome='Manuel' and b.nome = 'Ana' 
+CREATE (a)-[r:amigo]->(b)
+return type(r)
+
+
+Match (a:pessoa),
+(b:movie)
+where a.nome='James Mangold' and b.nome = 'Wolverine' 
+CREATE (a)-[r:Direcionou]->(b)
+return type(r)
+
+
+
+Match (a:pessoa),
+(b:movie)
+where a.nome='Will Yun Lee' and b.nome = 'Wolverine' 
+CREATE (a)-[r:participou_em]->(b)
+return type(r)
+
+
+Match (a:pessoa),
+(b:movie)
+where a.nome='Tao Okamoto' and b.nome = 'Wolverine' 
+CREATE (a)-[r:participou_em]->(b)
+return type(r)
+
+
+Match (a:pessoa),
+(b:movie)
+where a.nome='Hugh Jackman' and b.nome = 'Wolverine' 
+CREATE (a)-[r:participou_em]->(b)
+return type(r)
+
+
+
+
+Match (a:utilizador),
+(b:movie)
+where a.nome='Ana' and b.nome = 'Wolverine' 
+CREATE (a)-[r:Assistiu]->(b)
+return type(r)
+
+
+
+
+create (n:genero{nome:'Acao'}) return n
+create (n:genero{nome:'terror'}) return n
+create (n:genero{nome:'Aventura'}) return n
+create (n:genero{nome:'ficao-cientifica'}) return n
+create (n:genero{nome:'Drama'}) return n
+create (n:genero{nome:'Romance'}) return n
+create (n:genero{nome:'Policial'}) return n
+
+
+create (n:movie{nome:'Star Wars: Episode III'}) return n
+
+create (n:pessoa{nome:'George Lucas'}) return n
+
+create (n:pessoa{nome:'Ewan McGregor'}) return n
+
+create (n:pessoa{nome:'Hayden Christensen'}) return n
+
+create (n:pessoa{nome:'Samuel L. Jackson'}) return n
+
+
+Match (a:pessoa),
+(b:movie)
+where a.nome='George Lucas' and b.nome = 'Star Wars: Episode III' 
+CREATE (a)-[r:Direcionou]->(b)
+return type(r)
+
+
+Match (a:pessoa),
+(b:movie)
+where a.nome='Ewan McGregor' and b.nome = 'Star Wars: Episode III' 
+CREATE (a)-[r:participou_em]->(b)
+return type(r)
+
+Match (a:pessoa),
+(b:movie)
+where a.nome='Hayden Christensen' and b.nome = 'Star Wars: Episode III' 
+CREATE (a)-[r:participou_em]->(b)
+return type(r)
+
+Match (a:pessoa),
+(b:movie)
+where a.nome='Samuel L. Jackson' and b.nome = 'Star Wars: Episode III' 
+CREATE (a)-[r:participou_em]->(b)
+return type(r)

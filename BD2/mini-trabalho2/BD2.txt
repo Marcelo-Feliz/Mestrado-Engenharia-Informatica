@@ -1,0 +1,115 @@
+-------Triggers
+
+	Triggers sao operações automaticamente efetuadas quando um evento da base de dados acontece.
+	Os eventos podem ser do tipo DELETE, INSERT, UPDATE.
+
+	The BEFORE or AFTER keyword determines when the trigger actions will be executed relative to the insertion, 	modification or removal of the associated row. BEFORE is the default when neither keyword is present.
+
+	Se for feito drop table de uma table com triggers, estes sao automaticamente eliminados tambem
+
+
+	BEFORE tem "old" e "new"
+
+
+
+CREATE TRIGGER amigos_t after insert on amigos
+BEGIN
+Delete from amigos Where Nums1 = Nums2;
+END
+
+
+
+CREATE TRIGGER amigos_t2 BEFORE insert on amigos
+BEGIN
+	select 
+    	Case
+    When new.nums1 = new.nums2 THEN
+    RAISE (abort,'Can not be friend with himself')
+    END;
+END;
+
+
+CREATE TRIGGER amigos_t2 BEFORE insert on amigos
+BEGIN
+	select 
+    	Case
+    When ( new.nums2 , new.nums1) in amigos then
+    RAISE (abort,'the information is already in the database')
+    END;
+END;
+
+
+drop trigger amigos_t;
+
+
+
+
+
+
+-------Stored Procedure
+
+A stored procedure is a prepared SQL code that you can save, so the code can be reused over and over again.
+
+So if you have an SQL query that you write over and over again, save it as a stored procedure, and then just call it to execute it.
+
+You can also pass parameters to a stored procedure, so that the stored procedure can act based on the parameter value(s) that is passed.
+
+
+
+Stored Procedure Syntax:
+
+
+CREATE PROCEDURE procedure_name
+AS
+
+sql_statement
+
+GO; 
+
+
+
+Execute a Stored Procedure:
+
+
+EXEC procedure_name; 
+
+
+
+
+
+
+
+-------Transaction
+
+Transaction faz ter a certeza de que a transação é feita na totalidade ou nao é feita de todo.
+Por exemplo tirar 1000 da conta de uma pessoa para meter noutra conta, feito de forma normal pode haver um erro a meio da transação que faça com que se retire os 1000 de uma conta e depois nao seja colocados na outra conta, assim se ocorrer qquer tipo de erro é feito um ROLLBACK que anula o que foi feito.
+As que forem efetuadas com sucesso ficam guardadas na base de dados de maneira normal
+
+
+
+
+-- start a transaction
+BEGIN;
+
+-- deduct 1000 from account 1
+UPDATE accounts 
+SET balance = balance - 1000
+WHERE id = 1;
+
+-- add 1000 to account 2
+UPDATE accounts
+SET balance = balance + 1000
+WHERE id = 2; 
+
+-- select the data from accounts
+SELECT id, name, balance
+FROM accounts;
+
+-- commit the transaction
+COMMIT;
+
+
+
+
+
+

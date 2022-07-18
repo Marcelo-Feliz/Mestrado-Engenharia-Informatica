@@ -1,0 +1,107 @@
+Classe:
+Biblioteca
+bib1
+Cidade
+beja
+Socio
+socio1
+entregou
+entrega1
+exemplar
+exemplar1
+livro
+livro1
+autor
+autor1
+avaliação
+avalia1
+
+Data property:
+Biblioteca NomeB: xsd: string
+bib1 nomeb 'António Aleixo'
+
+Cidade NomeCidade: xsd: string
+beja Nomecidade 'Beja'
+
+Socio temBI: xsd: string
+Socio nomeS: xsd: string
+s1 nomes 'Andre'
+s1 temBI 's001'
+
+Exemplar idLivro xsd: int
+exemplar1 idlivro '001'
+
+entregou idLivro xsd: int
+entregou data xsd: data
+entregou Nums xsd: int
+
+data data xsd: data
+
+requisitou idLivro xsd: int
+requisitou data xsd: data
+requisitou Nums xsd: int
+
+livro ISBN xsd: int
+livro titulo xsd: string
+livro cidade xsd: string
+livro1 ISBN '11011'
+livro1 titulo 'As aventuras do Andre'
+livro1 cidade 'Porto'
+
+avaliacao numeroEstrelas xsd: int
+avaliacao comentrario xsd: string
+avaliacao cidade xsd: string
+avaliacao1 numeroEstrelas 5
+avaliacao1 comentrario 'Muito bom'
+avaliacao1 cidade 'Lisboa'
+
+autor codA xsd: int
+autor NomeA xsd: string
+autor NBiA xsd: int
+autor PaisA xsd: string
+autor CidadeA xsd: string
+autor1 codA '0001
+autor1 NomeA 'Ruben'
+autor1 NBiA '11101'
+autor1 PaisA 'Portugal'
+autor1 CidadeA 'Evora'
+
+
+Object property:
+
+Biblioteca incity cidade
+bib1 incity beja
+Socio vive em cidade
+
+
+
+
+
+
+
+
+
+
+
+
+Queries em DL ou SPARQL
+
+Pessoa que vivem em Lazarote
+
+PessoaViveEmCidade value Lazarote
+
+
+
+Autor que vive em Lazarote
+
+AuthorDeLivro some(
+PessoaViveEmCidade value Lazarote
+)
+
+
+Socio que requisitou o exemplar1
+
+SocioRequisitou some(
+RequisitouExemplar value exemplar1
+)
+

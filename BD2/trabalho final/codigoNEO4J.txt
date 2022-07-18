@@ -1,0 +1,198 @@
+
+
+create (a:utilizador{nome:'Rodrigo'})
+
+create (a:utilizador{nome:'Andre'})
+
+create (a:utilizador{nome:'Ruben'})
+
+create (n:utilizador{nome:'Ana'}) return n
+
+create (n:utilizador{nome:'Manuel'}) return n
+
+create (n:movie{nome:'Wolverine'}) return n
+
+create (n:pessoa{nome:'James Mangold'}) return n
+
+create (n:pessoa{nome:'Will Yun Lee'}) return n
+
+create (n:pessoa{nome:'Tao Okamoto'}) return n
+
+create (n:pessoa{nome:'Hugh Jackman'}) return n
+
+
+
+
+Match (a:utilizador),
+(b:utilizador)
+where a.nome='Ana' and b.nome = 'Manuel' 
+CREATE (a)-[r:amigo]->(b)
+return type(r)
+
+Match (a:utilizador),
+(b:utilizador)
+where a.nome='Manuel' and b.nome = 'Ana' 
+CREATE (a)-[r:amigo]->(b)
+return type(r)
+
+
+Match (a:pessoa),
+(b:movie)
+where a.nome='James Mangold' and b.nome = 'Wolverine' 
+CREATE (a)-[r:Direcionou]->(b)
+return type(r)
+
+
+
+Match (a:pessoa),
+(b:movie)
+where a.nome='Will Yun Lee' and b.nome = 'Wolverine' 
+CREATE (a)-[r:participou_em]->(b)
+return type(r)
+
+
+Match (a:pessoa),
+(b:movie)
+where a.nome='Tao Okamoto' and b.nome = 'Wolverine' 
+CREATE (a)-[r:participou_em]->(b)
+return type(r)
+
+
+Match (a:pessoa),
+(b:movie)
+where a.nome='Hugh Jackman' and b.nome = 'Wolverine' 
+CREATE (a)-[r:participou_em]->(b)
+return type(r)
+
+
+
+
+Match (a:utilizador),
+(b:movie)
+where a.nome='Ana' and b.nome = 'Wolverine' 
+CREATE (a)-[r:Assistiu]->(b)
+return type(r)
+
+
+
+
+create (n:genero{nome:'Acao'}) return n
+create (n:genero{nome:'terror'}) return n
+create (n:genero{nome:'Aventura'}) return n
+create (n:genero{nome:'ficao-cientifica'}) return n
+create (n:genero{nome:'Mistério'}) return n
+create (n:genero{nome:'Drama'}) return n
+create (n:genero{nome:'Romance'}) return n
+create (n:genero{nome:'Policial'}) return n
+
+
+create (n:movie{nome:'Star Wars: Episode III'}) return n
+
+create (n:pessoa{nome:'George Lucas'}) return n
+
+create (n:pessoa{nome:'Ewan McGregor'}) return n
+
+create (n:pessoa{nome:'Hayden Christensen'}) return n
+
+create (n:pessoa{nome:'Samuel L. Jackson'}) return n
+
+
+Match (a:pessoa),
+(b:movie)
+where a.nome='George Lucas' and b.nome = 'Star Wars: Episode III' 
+CREATE (a)-[r:Direcionou]->(b)
+return type(r)
+
+
+Match (a:pessoa),
+(b:movie)
+where a.nome='Ewan McGregor' and b.nome = 'Star Wars: Episode III' 
+CREATE (a)-[r:participou_em]->(b)
+return type(r)
+
+Match (a:pessoa),
+(b:movie)
+where a.nome='Hayden Christensen' and b.nome = 'Star Wars: Episode III' 
+CREATE (a)-[r:participou_em]->(b)
+return type(r)
+
+Match (a:pessoa),
+(b:movie)
+where a.nome='Samuel L. Jackson' and b.nome = 'Star Wars: Episode III' 
+CREATE (a)-[r:participou_em]->(b)
+return type(r)
+
+
+Match (a:genero), 
+            (b:movie) 
+            where a.nome= 'Aventura' and b.nome = 'Wolverine' 
+            CREATE (a)-[r:genero]->(b) 
+            return type(r)
+
+Match (a:genero), 
+            (b:movie) 
+            where a.nome= 'Acao' and b.nome = 'Wolverine' 
+            CREATE (a)-[r:genero]->(b) 
+            return type(r)
+
+Match (a:genero), 
+            (b:movie) 
+            where a.nome= 'ficao-cientifica' and b.nome = 'Wolverine' 
+            CREATE (a)-[r:genero]->(b) 
+            return type(r)
+
+Match (a:genero), 
+            (b:movie) 
+            where a.nome= 'Acao' and b.nome = 'Star Wars: Episode III' 
+            CREATE (a)-[r:genero]->(b) 
+            return type(r)
+
+Match (a:genero), 
+            (b:movie) 
+            where a.nome= 'Aventura' and b.nome = 'Star Wars: Episode III' 
+            CREATE (a)-[r:genero]->(b) 
+            return type(r)
+
+
+
+
+create (n:movie{nome:'Reminiscência'}) return n
+
+Match (a:pessoa),
+(b:movie)
+where a.nome='Hugh Jackman' and b.nome = 'Reminiscência' 
+CREATE (a)-[r:participou_em]->(b)
+return type(r)
+
+
+
+create (n:pessoa{nome:'Rebecca Ferguson'}) return n
+
+Match (a:pessoa),
+(b:movie)
+where a.nome='Rebecca Ferguson' and b.nome = 'Reminiscência' 
+CREATE (a)-[r:participou_em]->(b)
+return type(r)
+
+
+Match (a:genero), 
+            (b:movie) 
+            where a.nome= 'Mistério' and b.nome = 'Reminiscência' 
+            CREATE (a)-[r:genero]->(b) 
+            return type(r)
+
+Match (a:genero), 
+            (b:movie) 
+            where a.nome= 'Romance' and b.nome = 'Reminiscência' 
+            CREATE (a)-[r:genero]->(b) 
+            return type(r)
+
+
+create (n:pessoa{nome:'Lisa Joy'}) return n
+
+
+Match (a:pessoa),
+(b:movie)
+where a.nome='Lisa Joy' and b.nome = 'Reminiscência' 
+CREATE (a)-[r:Direcionou]->(b)
+return type(r)
