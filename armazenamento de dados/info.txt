@@ -1,0 +1,55 @@
+COLUNAS
+
+ID - id do acidente / identificador unico
+Severity - severidade do acidente, de 1 a 4 sobre o impacto no transito
+Start_Time - Mostra o horario do inicio do acidente, na hora local
+End_Time - Mostra o horario do fim da influencia do acidente no transito, na hora local
+Start_Lat - mostra a latitude no GPS do local do acidente
+Start_Lng - mostra a longitudo no GPS do local do acidente
+End_Lat - mostra a latitude no GPS do ponto final
+End_Lng - mostra a longitude no GPS do ponto final
+Distance(mi) - Distancia da estrada afetada pelo acidente em milhas(suponho)
+Description - Mostra em linguagem natural a descrição do acidente
+Number - numero da rua
+Street - nome da rua
+Side - lado relativo(esquerda/direita) em que o acidente ocorreu na estrada
+City - nome da cidade
+County - câmara
+State - Nome do estado
+Zipcode - codigo postal
+Country - nome do pais
+Timezone - fuzo horario
+Airport_Code - aeroporto mais proximo da localização
+Weather_Timestamp - horario de observação climática
+Temperature(F) - temperatura em Fahrenheit
+Wind_Chill(F) - temperatura do vento em Fahrenheit
+Humidity(%) - percentagem de humidade
+Pressure(in) - pressão do ar em polegadas
+Visibility(mi) - milhas de visibilidade
+Wind_Direction - direção do vento
+Wind_Seep(mph) - velocidade do vento
+Precipitation(in) - precipitação em polegadas
+Weather_Condition - condição atmosferica(chuva, neve, nevoeiro...)
+True or False ----
+Amenity - indica se existe comodidades na vizinhança 
+Bump - indica se existe presença de lomba na vizinhança 
+Crossing - indica se existe presença de passadeiras na vizinhança 
+Give_Way - indica se existe presença de cedencia de passagem na vizinhança 
+Junction - indica se existe presença de entroncamento na vizinhança 
+No_Exit - indica se existe presença de rua sem saida na vizinhança 
+Railway - indica se existe presença de carril de comboio na vizinhança 
+Roundabout - indica se existe presença de rotunda na vizinhança 
+Station - indica se existe presença de estação na vizinhança 
+Stop - indica se existe presença de STOP na vizinhança 
+Traffic_Calming - indica se existe presença de segurança para peoes ou ciclistas na vizinhança
+Traffic_Signal - indica se existe presença de sinal de transito na vizinhança 
+Turning_Loop -  indica se existe presença de loop de curvas na vizinhança 
+----
+Sunrise_Sunset - indica se é dia ou noite baseado no nascer do sol
+Civil_Twilight - indica se é dia ou noite baseado nos civis
+Nautical_Twilight - indica se é dia ou noite baseado no crepusculo Náutico
+Astronomical_Twilight - indica se é dia ou noite baseado nos crepusculo astronomico
+
+
+
+
