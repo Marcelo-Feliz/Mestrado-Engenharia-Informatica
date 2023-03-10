@@ -1,0 +1,94 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Instructions.gd" type="Script" id=1]
+[ext_resource path="res://assets/1261824.png" type="Texture" id=2]
+[ext_resource path="res://assets/M7fDTpDnJcZ4dt3myngzxi.jpg" type="Texture" id=3]
+
+[node name="Instructions" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -180, 538 )
+script = ExtResource( 1 )
+
+[node name="Menu" type="Button" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -20.0
+margin_right = 12.0
+text = "Back to Menu"
+
+[node name="Label" type="Label" parent="."]
+margin_right = 538.0
+margin_bottom = 611.0
+text = "Instruções:
+
+No inicio do jogo vai ser possível escolher um tipo de poder para usar na nave.
+
+Cada poder é unico e pode ser melhor ou pior dependendo da situação ou nivel do 
+jogo.
+
+Para alem desse poder inicial, depois de cada nível vai ser possível escolher
+uma stat da nave para melhorar.
+
+O objetivo do jogo é eliminar inimigos suficientes para passar cada nível.
+
+Atenção que dependendo da dificuldade e do nível os inimigos terão mais vida e 
+serão mais rápidos.
+
+As balas são limitas caso a especialidade da nave não seja machine gun! por isso 
+toma atenção á quantidade de munição que ainda tens e nao a desperdices!
+A quantidade poder ser vista no canto superior esquerdo pelo símbolo:
+
+A nave tem por base inicialmente 3 de vida e perde-a chocando contra naves
+inimigas ou deixando chegar inimigos á estação espacial. Esta qauntidade
+pode ser aumentada, aumentando a stat ARMOR.
+
+Quando o jogador perde num determinado nivel, é dado ao jogador outra 
+nave que possuí a mesma especialidade mas com stats diferentes.
+Os stats que podem ser modificados na nave são:
+SPEED
+ARMOR
+AMMO/RECOIL
+RATE
+
+As teclas para se mover são as setas do teclado e é usado a barra de espaços para
+disparar.
+Boa sorte e torna-te um especialista na tua nave preferida!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Atenção, esta á a versão Alpha, é expectavél existirem problemas porque o jogo
+ainda se encontra em fase de desenvolvimento, caso encontre algum 
+problema ou erro no jogo contacte os desenvolvedores atraves do seguinte
+email: SpaceShooter@SSsuport.com
+
+Caso tenha alguma sugestão ou ideia para melhorar o jogo não hesite em 
+envia-las para o seguinte email: NinguemQuerSaber@SSsuport.com"
+
+[node name="1261824" type="Sprite" parent="Label"]
+modulate = Color( 1, 0, 0, 1 )
+self_modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 483, 307 )
+scale = Vector2( 0.0683594, 0.0664063 )
+texture = ExtResource( 2 )
+
+[node name="M7fDtpDnJcZ4Dt3Myngzxi" type="Sprite" parent="."]
+modulate = Color( 0.0666667, 0.0666667, 0.0666667, 1 )
+show_behind_parent = true
+position = Vector2( 270, 475 )
+rotation = 1.5708
+scale = Vector2( 0.41, 0.41 )
+texture = ExtResource( 3 )
+
+[connection signal="pressed" from="Menu" to="." method="_on_Button_pressed"]

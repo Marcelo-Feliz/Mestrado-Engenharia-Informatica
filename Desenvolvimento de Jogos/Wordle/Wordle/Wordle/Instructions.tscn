@@ -1,0 +1,210 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Instructions.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Images/rcorreto.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Images/rexiste.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Images/tecladorcorreto.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Images/tecladorexiste.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Images/cnaoexiste.png" type="Texture" id=6]
+
+[node name="Instructions" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_rotation = -0.0672773
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+margin_right = 948.0
+margin_bottom = 932.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer"]
+visible = false
+margin_right = 948.0
+margin_bottom = 932.0
+size_flags_vertical = 1
+text = "Intruções
+Descubra a palavra certa em 6 tentativas.
+Depois de cada tentativa, as peças mostram o quão perto você está da solução.
+
+
+
+
+
+
+
+A letra \"r\" faz parte da palavra e está no sitio correto, o teclado fica iluminado da seguinte forma:
+
+
+
+
+
+
+
+
+
+
+
+
+O \"r\" faz parte da palavra mas em outra posição:
+
+
+
+
+
+
+
+O teclado fica iluminado da seguinte forma:
+
+
+
+
+
+
+
+
+
+
+
+
+A letra \"c\" não existe nesta palavra
+
+
+
+
+
+
+
+Os acentos são preenchidos automaticamente, e não são considerados nas dicas.
+As palavras podem possuir letras repetidas.
+----------------------------------------------------------------"
+align = 1
+valign = 1
+
+[node name="Rcorreto" type="Sprite" parent="ScrollContainer/VBoxContainer/Label"]
+position = Vector2( 481, 102 )
+texture = ExtResource( 2 )
+
+[node name="Tecladorcorreto" type="Sprite" parent="ScrollContainer/VBoxContainer/Label"]
+position = Vector2( 484, 282 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+
+[node name="Rexiste" type="Sprite" parent="ScrollContainer/VBoxContainer/Label"]
+position = Vector2( 484, 464 )
+texture = ExtResource( 3 )
+
+[node name="Tecladorexiste" type="Sprite" parent="ScrollContainer/VBoxContainer/Label"]
+position = Vector2( 486, 622 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 5 )
+
+[node name="Cnaoexiste" type="Sprite" parent="ScrollContainer/VBoxContainer/Label"]
+position = Vector2( 480.254, 813.564 )
+texture = ExtResource( 6 )
+
+[node name="Label2" type="Label" parent="ScrollContainer/VBoxContainer"]
+margin_right = 948.0
+margin_bottom = 932.0
+size_flags_vertical = 1
+text = "Instructions
+Discover the right word in 6 tries.
+After each attempt, the tiles show how close you are to the solution.
+
+
+
+
+
+
+
+The letter \"r\" is part of the word and is in the correct place, the keyboard is illuminated as follows:
+
+
+
+
+
+
+
+
+
+
+
+
+The \"r\" is part of the word but in another position:
+
+
+
+
+
+
+
+The keyboard is illuminated as follows:
+
+
+
+
+
+
+
+
+
+
+
+
+The letter \"c\" does not exist in this word
+
+
+
+
+
+
+
+Accents are filled in automatically, and are not taken into account in tips.
+Words can have repeated letters.
+----------------------------------------------------------------"
+align = 1
+valign = 1
+
+[node name="Rcorreto" type="Sprite" parent="ScrollContainer/VBoxContainer/Label2"]
+position = Vector2( 481, 102 )
+texture = ExtResource( 2 )
+
+[node name="Tecladorcorreto" type="Sprite" parent="ScrollContainer/VBoxContainer/Label2"]
+position = Vector2( 484, 282 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+
+[node name="Rexiste" type="Sprite" parent="ScrollContainer/VBoxContainer/Label2"]
+position = Vector2( 484, 464 )
+texture = ExtResource( 3 )
+
+[node name="Tecladorexiste" type="Sprite" parent="ScrollContainer/VBoxContainer/Label2"]
+position = Vector2( 486, 622 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 5 )
+
+[node name="Cnaoexiste" type="Sprite" parent="ScrollContainer/VBoxContainer/Label2"]
+position = Vector2( 480.254, 813.564 )
+texture = ExtResource( 6 )
+
+[node name="Language" type="Button" parent="."]
+margin_right = 12.0
+margin_bottom = 20.0
+text = "Portugues"
+
+[node name="Menu" type="Button" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -20.0
+margin_right = 12.0
+text = "Back to Menu"
+
+[connection signal="pressed" from="Language" to="." method="_on_Language_pressed"]
+[connection signal="pressed" from="Menu" to="." method="_on_Button_pressed"]
