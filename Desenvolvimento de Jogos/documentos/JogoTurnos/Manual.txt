@@ -1,0 +1,13 @@
+Jogo por turnos:
+
+O jogo é jogado por turnos, cada jogador controla uma bola(verde ou vermelha), começando o jogador da esquerda(verde) e depois o jogador da direita(vermelho).
+Existem 5 bolas que podem ser enviadas para marcar pontos em balizas, cada uma delas valendo 1 ponto para o adversário do dono da baliza.
+O jogo termina quando todas as 5 bolas marcam pontos.
+Quais sao as ações de cada jogador?
+R:. Escolher a posição onde o nosso jogador se vai possisionar, chutando as bolas que se encontrarem pelo caminho.
+
+Quando é que o jogo termina?
+R:. O jogo termina quando todas as bolas sao pontuadas.
+
+O jogo é divertido de jogar?
+R:. Sim.
