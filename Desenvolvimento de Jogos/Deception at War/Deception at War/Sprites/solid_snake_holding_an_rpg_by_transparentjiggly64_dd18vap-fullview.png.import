@@ -1,0 +1,35 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/solid_snake_holding_an_rpg_by_transparentjiggly64_dd18vap-fullview.png-46b794ed58f4a10b705f212b7aeebc24.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://Sprites/solid_snake_holding_an_rpg_by_transparentjiggly64_dd18vap-fullview.png"
+dest_files=[ "res://.import/solid_snake_holding_an_rpg_by_transparentjiggly64_dd18vap-fullview.png-46b794ed58f4a10b705f212b7aeebc24.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+process/normal_map_invert_y=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

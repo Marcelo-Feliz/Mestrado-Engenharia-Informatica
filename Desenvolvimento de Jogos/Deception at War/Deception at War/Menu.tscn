@@ -1,0 +1,88 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Menu.gd" type="Script" id=1]
+[ext_resource path="res://Font/Roboto-Bold.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Sprites/video/X2Download.app-Hey friend listen,.webm" type="VideoStream" id=3]
+[ext_resource path="res://Font/Roboto-Regular.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Sprites/551461.jpg" type="Texture" id=5]
+
+[sub_resource type="Theme" id=1]
+
+[node name="Node" type="Node"]
+script = ExtResource( 1 )
+dropdown_path = NodePath("drop")
+
+[node name="551461" type="Sprite" parent="."]
+position = Vector2( 648, 375 )
+scale = Vector2( 0.351042, 0.351389 )
+texture = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -385.0
+margin_right = 385.0
+margin_bottom = 118.0
+theme = SubResource( 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "Deception at War"
+
+[node name="Label2" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -59.0
+margin_top = -136.0
+margin_right = 56.0
+margin_bottom = -100.0
+custom_fonts/font = ExtResource( 4 )
+text = "Dificulty:"
+
+[node name="Button" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -50.0
+margin_top = -100.0
+margin_right = 50.0
+margin_bottom = -50.0
+text = "Play"
+
+[node name="Button2" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -58.0
+margin_top = -32.0
+margin_right = 58.0
+margin_bottom = 32.0
+text = "Instructions"
+
+[node name="drop" type="OptionButton" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -60.0
+margin_top = -100.0
+margin_right = 60.0
+margin_bottom = -50.0
+text = "Normal"
+items = [ "Easy", null, false, 0, null, "Normal", null, false, 1, null, "Hard", null, false, 2, null ]
+selected = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="VideoPlayer" type="VideoPlayer" parent="."]
+margin_right = 1284.0
+margin_bottom = 728.0
+stream = ExtResource( 3 )
+volume_db = 5.0
+autoplay = true
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="finished" from="VideoPlayer" to="." method="_on_VideoPlayer_finished"]
